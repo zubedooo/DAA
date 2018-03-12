@@ -11,6 +11,7 @@ graph={
         10:[9]
 }
 visited=[0]*10
+Time=clock()
 def dfs(node):
         visited[node-1]=1
         print node
@@ -18,3 +19,5 @@ def dfs(node):
                 if visited[k-1]==0:
                         dfs(k)
 dfs(1)
+end()
+end-start/CLOCKS_PER_SEC
