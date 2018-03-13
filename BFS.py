@@ -1,3 +1,4 @@
+ import time
  graph={
         1:[2,3],      
         2:[1,3,4,5],
@@ -23,3 +24,6 @@ def bfs(node):
                                 queue.append(k)
                                 visited[k-1]=1
 bfs(1)
+print("The program ran for:")
+print(time.clock())
+print("seconds")
