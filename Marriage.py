@@ -1,4 +1,5 @@
 import time
+menpref={"V":["C","B","A"],"W":["A","C","B"],"X":["B","A","C"]}
 womenpref={"A":["W","X","V"],"B":["X","V","W"],"C":["V","W","X"]}
 freemen=["V","W","X"]
 takenwomen=[]
