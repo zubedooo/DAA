@@ -1,3 +1,4 @@
+import time
 womenpref={"A":["W","X","V"],"B":["X","V","W"],"C":["V","W","X"]}
 freemen=["V","W","X"]
 takenwomen=[]
@@ -31,3 +32,6 @@ while freemen!=[]:
                     break
 print(final)
 #print("End")
+print("The program ran for:")
+print(time.clock())
+print("seconds")
