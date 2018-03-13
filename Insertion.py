@@ -1,3 +1,4 @@
+import time
 def insertionSort(arr):
     for i in range(1, len(arr)):
         key = arr[i]
@@ -11,3 +12,6 @@ insertionSort(arr)
 print("Sorted array is:")
 for i in range(len(arr)):
     print(arr[i])
+print("The program ran for:")
+print(time.clock())
+print("seconds")
