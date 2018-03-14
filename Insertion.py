@@ -16,6 +16,6 @@ insertionSort(L)
 end = time.clock()
 print("Sorted array is:")
 print L
-print("The program ran for:",end='')
-print(end-start,end='')
+print("The program ran for:")
+print(end-start)
 print("seconds")
