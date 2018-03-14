@@ -12,4 +12,6 @@ for i in range(len(L)):
     L[i],L[m]=L[m],L[i]
 end=time.clock()
 print L
-print (end-start)
+print ("The program ran for:",end='')
+print (end-start,end='')
+print ("seconds")
