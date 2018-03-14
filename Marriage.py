@@ -24,9 +24,7 @@ while freemen!=[]:
                     freemen.append(r)
                     takenwomen.append(j)
                     break
-start=time.clock()
 print(final)
-end=time.clock()
 print("The program ran for:")
-print(end-start)
+print(time.clock())
 print("seconds")
