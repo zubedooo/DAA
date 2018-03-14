@@ -1,4 +1,5 @@
 import time
+import random
 def insertionSort(arr):
     for i in range(1, len(arr)):
         key = arr[i]
@@ -7,11 +8,14 @@ def insertionSort(arr):
                 arr[j+1] = arr[j]
                 j -= 1
         arr[j+1] = key
-arr = [12, 11, 13, 5, 6]
-insertionSort(arr)
+L = []
+for i in range(1000):
+    L.append(random.randint(0,1001))
+start = time.clock()
+insertionSort(L)
+end = time.clock()
 print("Sorted array is:")
-for i in range(len(arr)):
-    print(arr[i])
+print L
 print("The program ran for:")
-print(time.clock())
+print(end-start)
 print("seconds")
