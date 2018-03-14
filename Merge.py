@@ -1,3 +1,4 @@
+import random
 import time
 def merge(a,b):
 		c=[]
@@ -20,11 +21,12 @@ def merge_sort(arr):
 	b=merge_sort(arr[mid:])
 	c=merge(a,b)
 	return c
-
-array=[2,4,5,0,1,7,8,9,6,3]
-print "Unsorted array is",array
+L=[]
+for i in range(1000):
+	L.append(random.randint(0,1001))
+print "Unsorted array is",L
 start=time.clock()
-array=merge_sort(array)
+L=merge_sort(L)
 end=time.clock()
-print "Sorted array is",array
+print "Sorted array is",L
 print "time taken",(end-start)
