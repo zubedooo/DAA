@@ -1,24 +1,26 @@
 import time
-graph={
-        1:[2,3],
-        2:[1,3,4,5],
-        3:[1,2,6,7],
-        4:[2,5,8,9],
-        5:[2,4,9],
-        6:[3,7],
-        7:[3,6],
-        8:[4,9],
-        9:[4,5,8,10],
-        10:[9]
+graph1 = {
+    'A' : ['B','S'],
+    'B' : ['A'],
+    'C' : ['D','E','F','S'],
+    'D' : ['C'],
+    'E' : ['C','H'],
+    'F' : ['C','G'],
+    'G' : ['F','S'],
+    'H' : ['E','G'],
+    'S' : ['A','C','G']
 }
-visited=[0]*10
-def dfs(node):
-        visited[node-1]=1
-        print node
+
+def dfs(graph, node, visited):
+    if node not in visited:
+        visited.append(node)
         for k in graph[node]:
-                if visited[k-1]==0:
-                        dfs(k)
-dfs(1)
-print("The program ran for:")
-print(time.clock())
+            dfs(graph,k, visited)
+    return visited
+start=time.clock()
+visited = dfs(graph1,'A', [])
+print(visited)
+end=time.clock()
+print("The code ran for:")
+print(end-start)
 print("seconds")
