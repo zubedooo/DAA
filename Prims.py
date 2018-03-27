@@ -1,3 +1,4 @@
+import time
 def popmin(pqueue):
     lowest = 1000
     keylowest = None
@@ -35,6 +36,9 @@ graph = {0 : {1:6, 2:8},
 3 : {},
 4 : {5:3},
 5 : {2: 7, 3:4}}
- 
+
+start=time.clock()
 pred = prim(graph, 0)
 for v in pred: print "%s: %s" % (v, pred[v])
+end=time.clock()
+print "The program ran for: ",end-start,"seconds"
