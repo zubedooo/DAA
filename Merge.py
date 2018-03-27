@@ -28,5 +28,5 @@ print "Unsorted array is",L
 start=time.clock()
 L=merge_sort(L)
 end=time.clock()
-print "Sorted array is",L
+print "Sorted array is",
 print "time taken",(end-start)
