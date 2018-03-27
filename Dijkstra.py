@@ -1,3 +1,4 @@
+import time
 nodes = ('A', 'B', 'C', 'D', 'E', 'F', 'G')
 distances = {
     'B': {'A': 5, 'D': 1, 'G': 2},
@@ -14,6 +15,7 @@ current = 'B'
 currentDistance = 0
 unvisited[current] = currentDistance
 
+start=time.clock()
 while True:
     for neighbour, distance in distances[current].items():
         if neighbour not in unvisited: continue
@@ -26,4 +28,6 @@ while True:
     candidates = [node for node in unvisited.items() if node[1]]
     current, currentDistance = sorted(candidates, key = lambda x: x[1])[0]
 
+end=time.clock()
 print(visited)
+print "The program ran for: ",end-start,"seconds"
