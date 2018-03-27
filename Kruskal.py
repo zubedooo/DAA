@@ -12,7 +12,7 @@ weight= [
          [1000,7,8,2,1000]
         ]
 rows=[0]
-for i in xrange(vert-1):
+for i in range(vert):
   row,col,min_no=-1,-1,1000
   for i in rows:
     temp=min(weight[rows[i]])
@@ -23,7 +23,7 @@ for i in xrange(vert-1):
   print str(min_no)+"("+str(row)+","+str(col)+")"
   spanset[col]=False
   weight[col][row]=1000
-  for i in xrange(vert):
+  for i in range(vert-1):
     weight[i][col]=1000
   rows.append(col)
 
