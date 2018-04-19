@@ -18,7 +18,10 @@ def sort(arr):
         c,r2 = sort(arr[mid:])
         d,c = merge(b,c)
         return d,(r1+r2+c)
-x = random.sample(range(20),20)
+x = []
+n=int(input("Enter size: "))
+for i in range(n):
+        x.insert(i,int(input("Enter Values: ")))
 start = time.clock()
 s,c = sort(x)
 end = time.clock()
