@@ -1,30 +1,29 @@
-#NEEDS IMPROVEMENT
-vert=5
-#spanset=[True]*5
-spanset=[]
-for i in range(vert):
-        spanset.append(True)
-weight= [
-         [1000,1,3,4,1000],
-         [1,1000,5,1000,7],
-         [3,5,1000,6,8],
-         [4,1000,6,1000,2],
-         [1000,7,8,2,1000]
-        ]
-rows=[0]
-for i in range(vert):
-  row,col,min_no=-1,-1,1000
-  for i in rows:
-    temp=min(weight[rows[i]])
-    if(min_no>temp):
-      min_no=temp
-      row=i
-      col=weight[i].index(temp)
-  print str(min_no)+"("+str(row)+","+str(col)+")"
-  spanset[col]=False
-  weight[col][row]=1000
-  for i in range(vert-1):
-    weight[i][col]=1000
-  rows.append(col)
-
-d=input()
+graph = {
+        1 : { 2:10, 5:100 },
+        2 : { 1:10, 3:50 },
+        3 : { 2:50, 4:20, 5:10 },
+        4 : { 3:20, 5:60 },
+        5 : { 1:100, 3:10, 4:60 }
+}
+def Kruskals():
+	Trees,visited,count,cost,weights=[],[0]*len(graph),1,0,[]
+	for i in graph.keys():
+		for j in graph[i]:
+			e=[graph[i][j],min(i,j),max(i,j)]
+			if e not in weights:
+				weights.append(e)
+	while count<len(graph):
+		e=min(weights)
+		weights.remove(e)
+		if visited[e[1]-1]==1 and visited[e[2]-1]==1:
+			continue
+		Trees.append([e[1],e[2]])
+		cost+=e[0]
+		count+=1
+		visited[e[1]-1],visited[e[2]-1]=1,1
+	return cost,Trees
+cost,tree=Kruskals()
+print "Cost:",cost
+print "Tree:"
+for i in tree:
+	print i
