@@ -1,7 +1,7 @@
 import time
 graph={}
-n=int(input("Enter Number Of Nodes: "))
-for i in range(n):
+no=int(input("Enter Number Of Nodes: "))
+for i in range(no):
   graph[i]={}
   print ("Enter Number Of Nodes Connected to",i)
   n=int(input())
