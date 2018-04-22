@@ -1,44 +1,31 @@
-import dict
 import time
-def popmin(pqueue):
-    lowest = 1000
-    keylowest = None
-    for key in pqueue:
-        if pqueue[key] < lowest:
-            lowest = pqueue[key]
-            keylowest = key
-    del pqueue[keylowest]
-    return keylowest
-
-def prim(graph, root):
-    pred = {}
-    key = {}
-    pqueue = {}
-
-    for v in graph:
-        pred[v] = -1
-        key[v] = 1000
-    key[root] = 0
-    for v in graph:
-        pqueue[v] = key[v]
-
-    while pqueue:
-        u = popmin(pqueue)
-        for v in graph[u]:
-            if v in pqueue and graph[u][v] < key[v]:
-                pred[v] = u
-                key[v] = graph[u][v]
-                pqueue[v] = graph[u][v]
-    return pred
-
-graph = {0 : {1:6, 2:8},
-1 : {4:11},
-2 : {3: 9},
-3 : {},
-4 : {5:3},
-5 : {2: 7, 3:4}}
+graph={}
+n=int(input("Enter Number Of Nodes: "))
+for i in range(n):
+  graph[i]={}
+  print ("Enter Number Of Nodes Connected to",i)
+  n=int(input())
+  for j in range(n):
+    x,w=map(int,input("Emter Node and Weight\n").split())
+    graph[i][x]=w
+print (graph)    
+def Prims():
+  U,V=set([1]),(graph.keys())
+  result=[]
+  while len(U) != len(V):
+    minw=-1
+    mine=[]
+    for u in U:
+      for v in graph[u]:
+        if v in V-U:
+          if minw==-1 or minw>graph[u][v]:
+            minw=graph[u][v]
+            mine=[u,v]
+    mine.append(minw)
+    result.append(mine)
+    U.add(mine[1])
+  return result
 start=time.clock()
-pred = prim(graph, 0)
-for v in pred: print "%s: %s" % (v, pred[v])
+print (Prims())
 end=time.clock()
-print "The program ran for: ",end-start,"seconds"
+print ("Program Ran for: ",end-start,"seconds")
