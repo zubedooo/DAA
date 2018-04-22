@@ -1,41 +1,33 @@
 import time
-
-str_nodes=input("Enter the nodes\n").upper() 
-nodes=str_nodes.split(" ")
-print (nodes)
-
-distances=dict()
-dummy_dict=dict()
-
-for i in nodes:
-    dummy_dict={}
-    noOfAttachments=int(input("How many nodes are attached to %c "%(i)))
-    for j in range(noOfAttachments):
-        a=input("Enter one node %c is attached to "%(i)).upper()
-        b=int(input("Enter the weight"))
-        dummy_dict[a]=b
-    distances[i]=dummy_dict
-print (distances)
-
-unvisited = {node: None for node in nodes} #using None as +inf
-visited = {}
-current = 'B'
-currentDistance = 0
-unvisited[current] = currentDistance
-
+graph={}
+n=int(input("Enter Number Of Nodes: "))
+for i in range(n):
+  graph[i]={}
+  print ("Enter Number Of Nodes Connected to",i)
+  n=int(input())
+  for j in range(n):
+    x,w=map(int,input("Enter Node and Weight\n").split())
+    graph[i][x]=w
+print (graph)    
+def Dijkstra(s):
+  d,visited=[999]*len(graph),[0]*len(graph)
+  d[s-1]=0
+  visited[s-1]=s-1
+  vertices=[s]
+  while len(vertices)!=len(graph.keys()):
+    edges={}
+    for u in vertices:
+      for v in graph[u].keys():
+        if visited[v-1]==0:
+          t=d[u-1]+graph[u][v]
+          edges.update({t:[u,v]})
+    min_d=min(edges.keys())
+    node=edges[min_d][1]
+    d[node-1]=min_d
+    vertices.append(node)
+    visited[node-1]=node-1
+  return d
 start=time.clock()
-while True:
-    for neighbour, distance in distances[current].items():
-        if neighbour not in unvisited: continue
-        newDistance = currentDistance + distance
-        if unvisited[neighbour] is None or unvisited[neighbour] > newDistance:
-            unvisited[neighbour] = newDistance
-    visited[current] = currentDistance
-    del unvisited[current]
-    if not unvisited: break
-    candidates = [node for node in unvisited.items() if node[1]]
-    current, currentDistance = sorted(candidates, key = lambda x: x[1])[0]
-
+print (Dijkstra(1))
 end=time.clock()
-print(visited)
-print ("The program ran for: ",end-start,"seconds")
+print ("The Program Ran for: ",end-start,"seconds")
