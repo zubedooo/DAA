@@ -6,7 +6,7 @@ for i in range(n):
   print ("Enter Number Of Nodes Connected to",i)
   n=int(input())
   for j in range(n):
-    x,w=map(int,input("Emter Node and Weight\n").split())
+    x,w=map(int,input("Enter Node and Weight\n").split())
     graph[i][x]=w
 print (graph)    
 def Prims():
