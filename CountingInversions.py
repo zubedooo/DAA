@@ -1,4 +1,3 @@
-import random
 import time
 def merge(a,b):
         m,c = [],0
@@ -18,14 +17,16 @@ def sort(arr):
         c,r2 = sort(arr[mid:])
         d,c = merge(b,c)
         return d,(r1+r2+c)
-x = []
-n=int(input("Enter size: "))
+y = []; x = [];
+n=int(input("Enter range of numbers : "))
 for i in range(n):
-        x.insert(i,int(input("Enter Values: ")))
-start = time.clock()
+    num=int(input("Enter value"))
+    x.insert(i,num);y.insert(i,num);
+start= time.clock()
 s,c = sort(x)
-end = time.clock()
-print "Initial list: ",x
-print "Sortred list: ",s
-print "Number of Invertions: ",c
-print "Time :",end-start,"seconds"
+end= time.clock()
+print ("Initial list: ",x)
+y.sort()
+print ("Sorted list: ",y)
+print ("Number of Invertions: ",c)
+print ("Time :",end-start)
