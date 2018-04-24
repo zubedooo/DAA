@@ -25,8 +25,8 @@ for i in range(n):
 start= time.clock()
 s,c = sort(x)
 end= time.clock()
-print ("Initial list: ",x)
+print "Initial list: ",x
 y.sort()
-print ("Sorted list: ",y)
-print ("Number of Invertions: ",c)
-print ("Time :",end-start)
+print "Sorted list: ",y
+print "Number of Invertions: ",c
+print "Time :",end-start
