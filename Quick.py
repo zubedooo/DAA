@@ -15,12 +15,12 @@ def quickSort(arr,low,high):
         quickSort(arr, low, pi-1)
         quickSort(arr, pi+1, high)
 arr =[]
-def repeat(n):
-        for i in range(n):
-                arr.append(random.randint(0,51))
-        start=time.clock()
-        quickSort(arr,0,n-1)
-        end=time.clock()
-        print "Time taken to sort array of size ",n,": ", end-start,"seconds"
-for i in range(1,6):
-        repeat(500*i)
+n=500
+for i in range(n):
+    arr.append(random.randint(0,n+1))
+print arr
+start=time.clock()
+quickSort(arr,0,n-1)
+end=time.clock()
+print arr
+print "Time taken to sort array: ", end-start,"seconds"
