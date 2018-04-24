@@ -1,29 +1,32 @@
-graph = {
-        1 : { 2:10, 5:100 },
-        2 : { 1:10, 3:50 },
-        3 : { 2:50, 4:20, 5:10 },
-        4 : { 3:20, 5:60 },
-        5 : { 1:100, 3:10, 4:60 }
-}
-def Kruskals():
-	Trees,visited,count,cost,weights=[],[0]*len(graph),1,0,[]
-	for i in graph.keys():
-		for j in graph[i]:
-			e=[graph[i][j],min(i,j),max(i,j)]
-			if e not in weights:
-				weights.append(e)
-	while count<len(graph):
-		e=min(weights)
-		weights.remove(e)
-		if visited[e[1]-1]==1 and visited[e[2]-1]==1:
-			continue
-		Trees.append([e[1],e[2]])
-		cost+=e[0]
-		count+=1
-		visited[e[1]-1],visited[e[2]-1]=1,1
-	return cost,Trees
-cost,tree=Kruskals()
-print "Cost:",cost
-print "Tree:"
-for i in tree:
-	print i
+import time
+graph=[[1,2,4],[2,3,3],[2,4,1],[1,4,8],[4,3,7],[3,6,8],[4,6,3]]
+graph.sort(key=lambda x:x[2])
+
+parent=[-1]*7
+
+def find(i):
+	if parent[i]==-1:
+		return i
+	else:
+		return find(parent[i])
+
+def union(i,j):
+	i_s=find(i)
+	j_s=find(j)
+	parent[i_s]=j_s
+
+
+result=[]
+
+for k in range(0,len(graph)-1):
+	u=graph[k][0]
+	v=graph[k][1]
+	u_s=find(u)
+	v_s=find(v)
+	if u_s != v_s:
+		result.append([u,v,graph[k][2]])
+		union(u,v)
+start=time.clock()
+print result
+end=time.clock()
+print "The Program ran for: ",end-start,"seconds"
