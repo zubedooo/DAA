@@ -1,7 +1,7 @@
 import time
 graph={1:{2:4,4:8},2:{1:4,4:1,3:3},3:{2:3,4:7,5:8},4:{2:1,3:7,1:8,5:3},5:{3:8,4:3}}
 def Prims():
-	U,V=set([1]),(graph.keys())
+	U,V=set([1]),set(graph.keys())
 	result=[]
 	while len(U) != len(V):
 		minw=-1
