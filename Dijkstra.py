@@ -25,6 +25,6 @@ def Dijkstra(s):
     visited[node-1]=node-1
   return d
 start=time.clock()
-print (Dijkstra(1))
+print Dijkstra(1)
 end=time.clock()
-print ("The Program Ran for: ",end-start,"seconds")
+print "The Program Ran for: ",end-start,"seconds"
