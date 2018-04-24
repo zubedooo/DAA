@@ -50,3 +50,4 @@ int main()
     printf("Total inversions : %d \n", inversion);
             
     return 0;
+}    
