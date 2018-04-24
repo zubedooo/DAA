@@ -1,11 +1,4 @@
 #include <stdio.h>
-
-/*
-The maximum number of inversions that an
-n-size array can have is 
-    n*(n-1) / 2
-*/
-
 int count_inversion_merge(int array[], int first, int last)
 {
     int mid = (first+last)/2;
@@ -13,7 +6,6 @@ int count_inversion_merge(int array[], int first, int last)
     int bi = mid+1;
     int final[last-first+1], finali=0;
     int inversion = 0, i;
-
     while (ai <= mid && bi <= last) {
         if (array[ai] <= array[bi]) {
                 final[finali++] = array[ai++];
@@ -31,21 +23,16 @@ int count_inversion_merge(int array[], int first, int last)
 
     for (i=0 ; i<last-first+1 ; i++)
         array[i+first] = final[i];      
-
     return inversion;
 }
-
 int count_inversion(int array[], int a, int b)
 {
     int x, y, z, mid;
     if (a >= b) return 0;
-
     mid = (a+b)/2;
-    
     x = count_inversion(array, a, mid);
     y = count_inversion(array, mid+1, b);
     z = count_inversion_merge(array, a, b);
-
     return x+y+z;
 }
 
