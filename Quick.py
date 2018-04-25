@@ -15,9 +15,9 @@ def quickSort(arr,low,high):
         quickSort(arr, low, pi-1)
         quickSort(arr, pi+1, high)
 arr =[]
-n=6
+n=10
 for i in range(n):
-    arr.append(random.randint(0,n+1))
+    arr.append(random.randint(0,100))
 print arr
 start=time.clock()
 quickSort(arr,0,n-1)
