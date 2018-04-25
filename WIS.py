@@ -34,7 +34,7 @@ def solution():
 	j=len(intervals)
 	profit=0
 	while j!=0:
-		if intervals[j-1][2]+m[p[j]]>m[j-1]:
+		if m[j]>m[j-1]:
 			final_set.append(j)
 			profit+=intervals[j-1][2]
 			j=p[j]
