@@ -28,6 +28,6 @@ start= time.clock()
 s,c= sort(x)
 end= time.clock()
 y.sort()
-print "Sorted list: ",x
+print "Sorted list: ",y
 print "Number of Invertions: ",c
 print "Time :",end-start
