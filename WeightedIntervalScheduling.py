@@ -1,48 +1,24 @@
 import time
-intervals=[[0, 3, 2],[1,4,4],[3,5,4],[2,6,7],[5,7,2]]
+jobs = [[0,4,2],[1,6,4],[5,8,4],[2,10,7],[8,11,2],[9,12,1]] 
+# job = [start,time,weight]
+jobs = sorted(jobs, key = lambda x: int(x[1]))
+print jobs
+p = [0]*len(jobs)
+for i in range(1,len(jobs)):
+    for j in range(i-1,-1,-1):
+        if jobs[j][1] <= jobs[i][0]:
+            p[i] = j + 1
+            break
+print p
 
-intervals.sort(key=lambda x:x[1])
-
-
-p=[0]*6
-
-def find_p():
-	for i in range(len(intervals)-1,-1,-1):
-		start_time=intervals[i][0]
-		for j in range(i-1,-1,-1):
-			end_time=intervals[j][1]
-			if end_time<=start_time:
-				p[i+1]=j+1
-				break
-find_p()
-
-m=[-1]*6
-m[0]=0
-
-def opt():
-	for i in range(1,len(intervals)+1):
-		v=intervals[i-1][2]
-		m[i]=max(v+m[p[i]],m[i-1])
-
-opt()
-
-final_set=[]
-
-profit=0
-
-def solution():
-	j=len(intervals)
-	profit=0
-	while j!=0:
-		if intervals[j-1][2]+m[p[j]]>m[j-1]:
-			final_set.append(j)
-			profit+=intervals[j-1][2]
-			j=p[j]
-		else:
-			j=j-1
-	return profit
+def WIS_recursive(jobs,p,n = len(jobs)):
+    val = OPT(n)
+    return val
+def OPT(n):
+    if n == 0:
+        return 0
+    return max(OPT(n-1), jobs[n-1][2] + OPT(p[n-1]))
 start=time.clock()
-print solution()
-print final_set
+print WIS_recursive(jobs,p)
 end=time.clock()
 print "The Program ran for: ",end-start,"seconds"
