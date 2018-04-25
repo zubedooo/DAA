@@ -15,7 +15,7 @@ def quickSort(arr,low,high):
         quickSort(arr, low, pi-1)
         quickSort(arr, pi+1, high)
 arr =[]
-n=500
+n=6
 for i in range(n):
     arr.append(random.randint(0,n+1))
 print arr
