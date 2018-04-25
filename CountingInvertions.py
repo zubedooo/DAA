@@ -21,7 +21,7 @@ def sort(arr):
 x = [];y=[]
 n=6
 for i in range(n):
-     x.append(random.randint(0,n+1))
+     x.append(random.randint(0,100))
      x=y
 print "Initial list: ",x
 start= time.clock()
