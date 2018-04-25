@@ -6,7 +6,7 @@ graph={
     4:{ 3:20, 5:60},
     5:{ 1:100, 3:10, 4:60}
 }
-def Dijkstras(s):
+def Dijkstra(s):
 	d,visited=[float('inf')]*len(graph),[0]*len(graph)
 	d[s-1]=0
 	visited[s-1]=1
