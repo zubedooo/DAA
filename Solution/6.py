@@ -2,7 +2,7 @@ import random
 import time
 def merge(a,b):
 		m=[]
-   	        c=0
+		c=0
 		while len(a) and len(b):
 			if a[0]<b[0]:
 			    m.append(a.pop(0))
@@ -23,11 +23,10 @@ def sort(arr):
         c,r2 = sort(arr[mid:])
         d,c = merge(b,c)
         return d,(r1+r2+c)
-
-n=6
+n=int(input("Enter range of numbers: ")
 x=[]
 for i in range(n):
-     x.append(random.randint(0,n+1))
+     x.append(random.randint(0,100))
 print "Initial list: ",x
 start= time.clock()
 s,c= sort(x)
