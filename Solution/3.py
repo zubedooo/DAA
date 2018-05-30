@@ -11,6 +11,7 @@ def insertionSort(arr):
 L = []
 for i in range(1000):
     L.append(random.randint(0,1001))
+print L
 start = time.clock()
 insertionSort(L)
 end = time.clock()
