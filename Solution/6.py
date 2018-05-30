@@ -2,7 +2,7 @@ import random
 import time
 def merge(a,b):
 		m=[]
-   	c=0
+   	        c=0
 		while len(a) and len(b):
 			if a[0]<b[0]:
 			    m.append(a.pop(0))
