@@ -23,7 +23,7 @@ def sort(arr):
         c,r2 = sort(arr[mid:])
         d,c = merge(b,c)
         return d,(r1+r2+c)
-n=int(input("Enter range of numbers: ")
+n=int(input("Enter range of numbers: "))
 x=[]
 for i in range(n):
      x.append(random.randint(0,100))
